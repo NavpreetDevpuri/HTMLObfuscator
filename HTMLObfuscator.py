@@ -19,7 +19,6 @@ class HTMLObfuscator:
 
     def obfuscate_html(self, html):
         beautiful_soup = BeautifulSoup(html, 'html.parser')
-        new_style_tag = beautiful_soup.new_tag("style")
         for element in beautiful_soup.recursiveChildGenerator():
             add_zero_with_chars_into_an_element(element,
                                                 self.zero_width_span_tags_probability,
@@ -32,5 +31,5 @@ class HTMLObfuscator:
                                   element,
                                   self.hide_tags_in_style_tag_probability,
                                   self.should_hide_zero_width_span_tags)
-        beautiful_soup.find("body").append(new_style_tag)
+        beautiful_soup.find("body").append(get_new_style_tag(beautiful_soup))
         return beautiful_soup.prettify()

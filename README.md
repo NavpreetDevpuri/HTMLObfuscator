@@ -11,3 +11,11 @@ This Python script also inserts some random span tags with some random sentences
 This Python script also hides some content into html attribute and CSS inserts it using ::after according to given probability.
 
 Example: `python main.py -i .\example.html -o .\example_obfuscated.html`
+
+## Screenshots
+
+### example.html
+![example.html](screenshots/example.html.png)
+
+### example_obfuscated.html
+![example_obfuscated.html](screenshots/example_obfuscated.html.png)

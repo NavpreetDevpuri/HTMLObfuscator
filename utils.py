@@ -76,3 +76,15 @@ def hide_tag_in_style_tag(beautiful_soup, element, probability=0.4, should_add_i
                 new_span_tag = beautiful_soup.new_tag("span", attrs={"class": "css", "d": text})
                 curr_content.replace_with(new_span_tag)
 
+
+def get_new_style_tag(beautiful_soup):
+    new_style_tag = beautiful_soup.new_tag("style")
+    new_style_tag.append(''' 
+        .inv {
+            display: none;
+        }
+
+        .css::after {
+            content: attr(d);
+        }''')
+    return new_style_tag
